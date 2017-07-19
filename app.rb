@@ -8,6 +8,7 @@ configure do
   set :environment, Sprockets::Environment.new
   settings.environment.append_path 'assets/stylesheets'
   settings.environment.append_path 'assets/javascripts'
+  settings.environment.append_path 'vendor'
 end
 
 get '/assets/*' do

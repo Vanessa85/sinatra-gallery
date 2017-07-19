@@ -6,5 +6,13 @@
     %title Sinatra Gallery
     %link{:rel => 'stylesheet', :href => '/assets/application.css'}
   %body
-    = yield
+    .grid-container
+      .top-bar
+        .top-bar-left
+          %ul.dropdown.menu{'data-dropdown-menu': ''}
+            %li.menu-text Sinatra Gallery
+            %li
+              %a{href: '/images/new'} Upload
+
+      = yield
   %script{:src => '/assets/application.js'}

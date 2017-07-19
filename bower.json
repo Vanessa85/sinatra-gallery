@@ -1,0 +1,17 @@
+{
+  "name": "sinatra-gallery",
+  "authors": [
+    "Vanessa Milagros <vanessapr.85@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
