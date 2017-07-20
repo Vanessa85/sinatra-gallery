@@ -17,9 +17,13 @@ get '/assets/*' do
 end
 
 get '/' do
-  "Hello world"
+  render_view 'images/index'
 end
 
 get '/images/new/?' do
   render_view 'images/new'
+end
+
+post '/images/new' do
+  
 end

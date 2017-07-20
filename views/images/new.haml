@@ -1,1 +1,22 @@
-%h1 Images
+%nav{:ariaLabel => 'You are here', :role => 'navigation'}
+  %ul.breadcrumbs
+    %li
+      %a{:href => '/'} Home
+    %li
+      %span.show-for Current:
+      New image
+
+%h2.separator-left
+  Images
+  %small New
+
+.grid-x.grid-margin-x
+  .cell.small-3
+    %img{:src => '', :width => '100%', :id => 'image_preview'}
+
+  .cell.small-9
+    %form{:action => '/images/new', :method => 'POST', :enctype => 'multipart/form-data'}
+      %label{:for => 'image_title'} Name
+      %input{:type => 'text', :title => 'image[title]', :placeholder => 'Enter a title', :required => '' }
+      %input{:type => 'file', :name => 'image_file', :accept => 'image/*'}
+      %button{:type => 'submit', :class => 'button'} Upload
