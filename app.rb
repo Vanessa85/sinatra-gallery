@@ -17,8 +17,12 @@ end
 
 ActiveRecord::Base.establish_connection(
   :adapter => 'sqlite3',
-  :database => 'dbdemo.sqlite3'
+  :database => 'db/dbdemo.sqlite3'
 )
+
+after do
+  ActiveRecord::Base.clear_active_connections!
+end
 
 get '/assets/*' do
   env['PATH_INFO'].sub!('/assets', '')
@@ -36,20 +40,14 @@ end
 
 post '/images/new' do
   image_file = params[:image_file]
-  unless image_file.empty?
-    uploads_path = File.join(settings.public_folder, 'uploads')
-    Dir.mkdir(uploads_path) unless Dir.exist?(uploads_path)
-    File.open(File.join(uploads_path, image_file[:filename]), 'wb') do |file|
-      file.write(image_file[:tempfile].read)
-    end
 
-    @image = Image.new(
-      :title => params[:image][:title],
-      :filename => image_file[:filename],
-      :size => image_file[:tempfile].size.to_f/1024) #kb
+  @image = Image.new(
+    :title => params[:image][:title],
+    :filename => image_file[:filename],
+    :size => image_file[:tempfile].size.to_f/1024) #kb
 
-    if @image.save
-      redirect '/'
-    end
+  if @image.save_with_file(image_file)
+    redirect '/'
   end
+
 end

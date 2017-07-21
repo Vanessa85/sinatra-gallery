@@ -3,4 +3,7 @@ helpers do
     haml(path.to_sym, options)
   end
 
+  def public_path
+    "hello"
+  end
 end

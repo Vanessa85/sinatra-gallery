@@ -3,7 +3,7 @@ require 'active_record'
 namespace :db do
   db_config = {
     :adapter => 'sqlite3',
-    :database => 'dbdemo.sqlite3'
+    :database => 'db/dbdemo.sqlite3'
   }
 
   task :connection do
