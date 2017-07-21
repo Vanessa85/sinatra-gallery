@@ -16,7 +16,7 @@
 
   .cell.small-9
     %form{:action => '/images/new', :method => 'POST', :enctype => 'multipart/form-data'}
-      %label{:for => 'image_title'} Name
-      %input{:type => 'text', :title => 'image[title]', :placeholder => 'Enter a title', :required => '' }
+      %label{:for => 'image_title'} Title
+      %input{:type => 'text', :name => 'image[title]', :placeholder => 'Enter a title', :required => '' }
       %input{:type => 'file', :name => 'image_file', :accept => 'image/*'}
       %button{:type => 'submit', :class => 'button'} Upload

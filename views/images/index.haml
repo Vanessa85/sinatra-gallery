@@ -4,6 +4,19 @@
       %span.show-for Current:
       Home
 
-%h2.separator-left
+%h2.separator-left.margin-bottom-1
   Images
   %small Index
+
+.grid-x.grid-margin-x
+  - @images.each do |image|
+    .cell.small-3
+      .card.radius.bordered.shadow
+        %img{:src => "/uploads/#{image.filename}", :alt => "#{image.title}"}
+        .card-divider
+          DEFAULT
+        .card-section
+          %h4= image.title
+          %p
+            Size:
+            = image.size.to_s + ' kb'

@@ -15,7 +15,9 @@
       reader.readAsDataURL(file);
     }
   }
-
-  inputFile.addEventListener('change', previewImage);
+  
+  if (inputFile) {
+    inputFile.addEventListener('change', previewImage);
+  }
 
 }(window, document);
